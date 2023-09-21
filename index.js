@@ -28,10 +28,11 @@ const play = () =>{
         playButton.innerHTML = 'Pause';
         bg.classList.add("animation-bg");
         min = setInterval(()=>{
-            minute.innerHTML = `${++minCounter} :`;
-        },60000);
+            minute.innerHTML = `${minCounter} :`;
+        },1000);
         sec = setInterval(()=>{
             if(secCounter === 59){
+                ++minCounter;
                 secCounter = 0;
             }
             second.innerHTML = `&nbsp;${++secCounter} :`;
