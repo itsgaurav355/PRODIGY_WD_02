@@ -2,7 +2,7 @@ const playButton = document.getElementsByClassName("play")[0];
 const resetButton = document.getElementsByClassName("reset")[0];
 const clearButton = document.getElementsByClassName("lap-clear-button")[0];
 const lapButton = document.getElementsByClassName("lap")[0];
-const minute = document.getElementsByClassName("miute")[0];
+const minute = document.getElementsByClassName("minute")[0];
 const second = document.getElementsByClassName("second")[0];
 const centiSecond = document.getElementsByClassName("msec")[0];
 const laps = document.getElementsByClassName("laps")[0];
@@ -29,9 +29,9 @@ const play = () =>{
         bg.classList.add("animation-bg");
         min = setInterval(()=>{
             minute.innerHTML = `${++minCounter} :`;
-        },1000);
+        },60000);
         sec = setInterval(()=>{
-            if(second === 60){
+            if(secCounter === 59){
                 secCounter = 0;
             }
             second.innerHTML = `&nbsp;${++secCounter} :`;
@@ -57,6 +57,7 @@ const play = () =>{
 }
 const reset = () => {
     isReset = true;
+    secCounter = 0;
     play();
     lapItem
     lapButton.classList.add("hidden");
@@ -64,7 +65,7 @@ const reset = () => {
     second.innerHTML = '&nbsp;0 :'
     centiSecond.innerHTML = '&nbsp;0';
     minute.innerHTML = '0 :';
-
+    
 }
 
 const lap = ()=>{
